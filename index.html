@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Document</title>
 </head>
 
@@ -20,22 +20,84 @@
         </header>
     </div>
 
-
-
-
-
-
-
     <div class="container" id="startContainer">
         <div class="row mt-5">
             <div class="col-12 ">
-                <button type="button" class="btn my-button btn-lg btn-block" id="startGameButton">Start Game
+                <button type="button" class="btn my-start-button btn-lg btn-block" id="startGameButton">Start Game
                 </button>
             </div>
         </div>
     </div>
 
-    <script src="./scripts.js"></script>
+
+    <div class="container question-container" id="questionContainer">
+        <div class="row mt-5">
+            <div class="col-2">
+
+            </div>
+            <div class="col-8 question-top">
+                <h2 class="questionNumber">
+                    Question 1:
+                </h2>
+                <h3 id="questionPrompt">
+                    When in the key of C major what chord will be played to execute a tritone substitution and cadence
+                    on a I chord?
+                </h3>
+            </div>
+            <div class="col-2">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+
+            </div>
+            <div class="col-8">
+                <ul class="row answers">
+                    <li class="col-1 answer-gaps">
+
+                    </li>
+                    <li class="col-3 answer-boxes" id="answerOne">
+                        C# 7
+                    </li>
+                    <li class="col-4">
+
+                    </li>
+                    <li class="col-3 answer-boxes" id="answerTwo">
+                        F#
+                    </li>
+                    <li class="col-1">
+
+                    </li>
+                    <li class="col-12 answer-gaps">
+
+                    <li class="col-1 answer-gaps">
+
+                    </li>
+                    <li class="col-3 answer-boxes" id="answerThree">
+                        C# 7
+                    </li>
+                    <li class="col-4">
+
+                    </li>
+                    <li class="col-3 answer-boxes" id="answerFour">
+                        F#
+                    </li>
+                    <li class="col-1">
+
+                    </li>
+                </ul>
+            </div>
+            <div class="col-2">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./assets/scripts.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,61 @@
+header{
+    background-color: rebeccapurple;
+    color: whitesmoke;
+}
+
+.my-start-button{
+    height: 500px;
+    background-color: salmon;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 90px;
+    color: whitesmoke;
+}
+
+.my-start-button:hover{
+    color: rebeccapurple;
+}
+
+.question-container{
+    display: none;
+    height: 400px;
+
+}
+
+.question-top{
+    height: 200px;
+}
+
+.question-bottom{
+    height: 200px;
+}
+
+ul{
+    padding: 0;
+}
+
+
+li{
+    list-style:none;
+
+}
+.answer-boxes{
+    background-color: salmon;
+    color: rebeccapurple;
+    border: 5px salmon solid;
+}
+
+.answer-boxes:hover{
+    background-color: rebeccapurple;
+    color: white;
+}
+
+.answer-gaps{
+    min-height: 75px;
+}
+
+
+
+
+
+
+
