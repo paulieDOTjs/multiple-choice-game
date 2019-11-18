@@ -2,20 +2,26 @@ function initGame() {
 
     // The variables used for interaction between this script and the html page. 
     const startButtonEl = document.getElementById("startGameButton");
+    const rulesButtonEl = document.getElementById("rulesButton")
     const startContainerEl = document.getElementById("startContainer");
     const questionContainerEl = document.getElementById("questionContainer");
     const finishContainerEl = document.getElementById("finishContainer");
+    const rulesContainerEl = document.getElementById("rulesContainer");
     const questionNumberEl = document.getElementById("questionNumber");
     const questionPromptEl = document.getElementById("questionPrompt");
     const answersEl = document.querySelectorAll(".answers-js");
-    
-    //Hides the question container and finish container
-    questionContainerEl.setAttribute("style", "display: none");
-    finishContainerEl.setAttribute("style", "display: none");
 
     //The variables for when the user interacts with the page.
     let chosenAnswer = "";
     let currentQuestion = 0;
+
+    startButtonEl.addEventListener("click", function () {
+        readRules();
+    })
+
+    rulesButtonEl.addEventListener("click", function () {
+        startGame();
+    })
 
     // The array of the questions and their answers 
     const questions = [
@@ -35,7 +41,7 @@ function initGame() {
             number: "Question 3:",
             title: "What is the relative minor of C major?",
             choices: ["Eb minor", "E minor", "Ab minor", "A minor"],
-            answer: "quarter note"
+            answer: "A minor"
         },
         {
             number: "Question 4:",
@@ -50,11 +56,22 @@ function initGame() {
             answer: "C#7"
         }]
 
+    //Hides the question, rules, and finish container
+    questionContainerEl.setAttribute("style", "display: none");
+    rulesContainerEl.setAttribute("style", "display: none");
+    finishContainerEl.setAttribute("style", "display: none");
+
+    //Shows rules of the game.
+    function readRules() {
+        rulesContainerEl.setAttribute("style", "display: inline");
+        startContainerEl.setAttribute("style", "display: none");
+    }
+
+    // The actual beginning of the quiz
     function startGame() {
         // hides the start button and brings up the first question. 
+        rulesContainerEl.setAttribute("style", "display: none");
         questionContainerEl.setAttribute("style", "display: inline");
-        startContainerEl.setAttribute("style", "display: none");
-
 
         //Gives each of the buttons an event listener so the program knows which was clicked.
         for (let i = 0; i < answersEl.length; i++) {
@@ -85,22 +102,9 @@ function initGame() {
             for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
                 answersEl[i].innerHTML = questions[currentQuestion].choices[i];
             }
-
-            // if (chosenAnswer === questions[currentQuestion].answer) {
-            //     console.log("winner");
-
-            // } else {
-            //     console.log("loser");
-            // }
-
-            // if then statements for if the answer is right.
-            // currentQuestion = currentQuestion + 1;
-
-            // console.log(currentQuestion);
-
-            // checkGameProgress();
         }
 
+        //Checks to see if the answer to the question is right.
         function checkAnswer() {
             if (chosenAnswer === questions[currentQuestion].answer) {
                 console.log(chosenAnswer);
@@ -114,19 +118,13 @@ function initGame() {
             currentQuestion = currentQuestion + 1;
             checkGameProgress();
         }
-
-        function finishGame() {
-            finishContainerEl.setAttribute("style", "display: inline");
-            questionContainerEl.setAttribute("style", "display: none");
-        }
-
         renderQuestion();
     }
 
-    //the function to begin the game.
-    startButtonEl.addEventListener("click", function () {
-        startGame();
-    })
+    function finishGame() {
+        finishContainerEl.setAttribute("style", "display: inline");
+        questionContainerEl.setAttribute("style", "display: none");
+    }
 
 } initGame();
 
@@ -138,32 +136,30 @@ function initGame() {
 // make a start button (jumbotron maybe?? make an on click)
 // make questions ()
 // designate which answer is correct
-
-
-
-// check for right/wrong
 // make thing that will show next question
 // make answer to questions
 // designate which answer is correct
 // check for right/wrong
+// give prompt that user got it right/wrong
+
+
+
 
 
 // To Do:
-// give prompt that user got it right/wrong
 // give reward for right
 // make reward change based on how much time is left
 // give punishment for wrong
-// make thing that will show next question
 // make a score keeper
 // make a high score keeper
 // make a thing where they can enter their high score
+// give link at the beginning to see high scores.
 
 
 
 // Put at the end
 // make a timer (not sure yet) 15 seconds * number of questions
 // make a time over screen
-
 
 
 

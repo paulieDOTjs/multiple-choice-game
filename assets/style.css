@@ -1,71 +1,72 @@
-header{
+.my-header {
     background-color: rebeccapurple;
     color: whitesmoke;
+    font-size: 56px;
+    height: 68px;
 }
 
-.my-start-button{
-    height: 500px;
+.my-jumbos {
     background-color: salmon;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 90px;
-    color: whitesmoke;
-}
-
-.my-start-button:hover{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 88px;
     color: rebeccapurple;
 }
 
-.question-container{
+.my-containers{
+    height: 800px;
+}
+
+.start-button {
+    color: whitesmoke;
+}
+
+.my-jumbos:hover {
+    color: rebeccapurple;
+}
+
+.question-container {
     height: 400px;
-
 }
 
-.question-top{
+.question-top {
     height: 200px;
 }
 
-.question-bottom{
+.question-bottom {
     height: 200px;
 }
 
-ul{
+ul {
     padding: 0;
 }
 
-
-li{
-    list-style:none;
-
+li {
+    list-style: none;
 }
 
-.gap{
-    min-height:100px;
+.gap {
+    min-height: 32px;
 }
 
-.answer-boxes{
+.answer-boxes {
     background-color: salmon;
     color: rebeccapurple;
     border: 5px salmon solid;
 }
 
-.answer-boxes:hover{
+.answer-boxes:hover {
     background-color: rebeccapurple;
     color: white;
 }
 
-.answer-gaps{
-    min-height: 75px;
+.answer-gaps {
+    min-height: 64px;
 }
 
-.finish-screen{
-    height: 500px;
-    background-color: salmon;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 90px;
-    color: rebeccapurple;
+footer {
+    height: 68px;
+    text-align: center;
+    background-color: rebeccapurple;
+    position: sticky;
+    bottom: 0;
 }
-
-
-
-
-

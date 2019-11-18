@@ -12,44 +12,51 @@
 </head>
 
 <body>
-    <div class="row">
-        <header class="col-12">
-            <h1 class="text-center">
+    <header class="row">
+        <div class="col-12">
+            <h1 class="text-center my-header">
                 Quiz Whizz
             </h1>
-        </header>
-    </div>
+        </div>
+    </header>
 
-    <div class="row">
-        <div class="col-12 gap">
+    <div class="row gap">
+        <div class="col-12">
 
         </div>
     </div>
 
-    <div class="container" id="startContainer">
+    <div class="container my-containers" id="startContainer">
         <div class="row">
             <div class="col-12 ">
-                <button type="button" class="btn my-start-button btn-lg btn-block" id="startGameButton">Start Game
+                <button type="button" class="btn my-containers my-jumbos btn-lg btn-block start-button"
+                    id="startGameButton">Start Game
                 </button>
             </div>
         </div>
     </div>
 
-    <div class="container" id="rules container">
+    <div class="container my-containers" id="rulesContainer">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 ">
                 <h2>
                     Rules:
                 </h2>
                 <p>
-                    This is a simple music quiz, covering basic music theory. The questions get harder as they get along. You will score points based on how much time 
+                    This is a simple music quiz, covering music theory. The questions get harder as they go along. You
+                    will score points based on how much time you have remaining to finish the quiz. If you
+                    get a question wrong 10 seconds will be subtracted from the total time remaining, which will impact
+                    your final score, so answering questions right is more important than answering questions quickly.
+                    Good luck!
                 </p>
+                <button id="rulesButton">
+                    Ok.
+                </button>
             </div>
         </div>
     </div>
 
-
-    <div class="container question-container" id="questionContainer">
+    <div class="container question-container my-containers" id="questionContainer">
         <div class="row">
             <div class="col-2">
 
@@ -112,16 +119,9 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-    <div class="container" id="finishContainer">
+    <div class="container my-containers" id="finishContainer">
         <div class="row">
-            <div class="col-12 finish-screen">
+            <div class="col-12 my-jumbos">
                 <div class="row">
                     <div class="col-12">
                         <h2 class="d-flex justify-content-center">
@@ -141,7 +141,19 @@
         </div>
     </div>
 
+    <div class="row gap">
+        <div class="col-12">
 
+        </div>
+    </div>
+
+    <footer class="row">
+        <div class="col">
+            <p class="copyright">
+                Copyright 2019
+            </p>
+        </div>
+    </footer>
 
 
     <script src="./assets/scripts.js"></script>
