@@ -16,7 +16,6 @@ header{
 }
 
 .question-container{
-    display: none;
     height: 400px;
 
 }
@@ -38,6 +37,11 @@ li{
     list-style:none;
 
 }
+
+.gap{
+    min-height:100px;
+}
+
 .answer-boxes{
     background-color: salmon;
     color: rebeccapurple;
@@ -53,7 +57,13 @@ li{
     min-height: 75px;
 }
 
-
+.finish-screen{
+    height: 500px;
+    background-color: salmon;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 90px;
+    color: rebeccapurple;
+}
 
 
 
