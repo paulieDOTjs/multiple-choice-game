@@ -2,7 +2,7 @@
     background-color: rebeccapurple;
     color: whitesmoke;
     font-size: 56px;
-    height: 15vh;
+    min-height: 15vh;
 }
 
 .my-jumbos {
@@ -13,7 +13,7 @@
 }
 
 .my-containers{
-    height: 60vh;
+    min-height: 60vh;
 }
 
 .start-button {
@@ -25,11 +25,11 @@
 }
 
 .question-top {
-    height: 200px;
+    min-height: 200px;
 }
 
 .question-bottom {
-    height: 200px;
+    min-height: 200px;
 }
 
 ul {
@@ -60,7 +60,7 @@ li {
 }
 
 footer {
-    height: 15vh;
+    min-height: 15vh;
     text-align: center;
     background-color: rebeccapurple;
     position: sticky;
