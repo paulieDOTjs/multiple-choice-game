@@ -9,17 +9,23 @@ function initGame() {
     const rulesContainerEl = document.getElementById("rulesContainer");
     const questionNumberEl = document.getElementById("questionNumber");
     const questionPromptEl = document.getElementById("questionPrompt");
+    const timerEl = document.getElementById("timer");
+    const scoreEl = document.getElementById("currentScore");
     const answersEl = document.querySelectorAll(".answers-js");
+    const finalScoreEl= document.getElementById("finalScore");
+    const finishedEl= document.getElementById("finished");
 
     //The variables for when the user interacts with the page.
     let chosenAnswer = "";
     let currentQuestion = 0;
+    let score = 0;
 
     startButtonEl.addEventListener("click", function () {
         readRules();
     })
 
     rulesButtonEl.addEventListener("click", function () {
+        startTimer();
         startGame();
     })
 
@@ -56,6 +62,9 @@ function initGame() {
             answer: "C#7"
         }]
 
+    const defaultTime = questions.length * 15;
+    let time = 0;
+
     //Hides the question, rules, and finish container
     questionContainerEl.setAttribute("style", "display: none");
     rulesContainerEl.setAttribute("style", "display: none");
@@ -63,7 +72,7 @@ function initGame() {
 
     //Shows rules of the game.
     function readRules() {
-        rulesContainerEl.setAttribute("style", "display: inline");
+        rulesContainerEl.setAttribute("style", "display: block");
         startContainerEl.setAttribute("style", "display: none");
     }
 
@@ -71,7 +80,7 @@ function initGame() {
     function startGame() {
         // hides the start button and brings up the first question. 
         rulesContainerEl.setAttribute("style", "display: none");
-        questionContainerEl.setAttribute("style", "display: inline");
+        questionContainerEl.setAttribute("style", "display: block");
 
         //Gives each of the buttons an event listener so the program knows which was clicked.
         for (let i = 0; i < answersEl.length; i++) {
@@ -107,23 +116,47 @@ function initGame() {
         //Checks to see if the answer to the question is right.
         function checkAnswer() {
             if (chosenAnswer === questions[currentQuestion].answer) {
-                console.log(chosenAnswer);
-                console.log(questions[currentQuestion].answer);
-                console.log("winner");
+                score = score+time;
+                scoreEl.innerHTML = score;
             } else {
-                console.log(chosenAnswer);
-                console.log(questions[currentQuestion].answer);
-                console.log("loser");
+               time = time-10;
             }
             currentQuestion = currentQuestion + 1;
             checkGameProgress();
         }
         renderQuestion();
     }
+    //The timer function
+    function startTimer() {
+        time = defaultTime;
+        let myInterval = setInterval(function () {
+            time = time - 1;
+
+            let minutes = Math.floor(time / 60) % 60;
+            let seconds = time % 60;
+
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            timerEl.innerHTML = minutes + ":" + seconds;
+
+            if (time <= 0) {
+                clearInterval(myInterval);
+                finishGame();
+            }
+        }, 1000)
+    }
 
     function finishGame() {
-        finishContainerEl.setAttribute("style", "display: inline");
+        time = 1;
+        finishContainerEl.setAttribute("style", "display: block");
         questionContainerEl.setAttribute("style", "display: none");
+        finalScoreEl.innerHTML = "Great Game! You scored " + score + " points!";
+        finishedEl.innerHTML = "FINISHED!";
     }
 
 } initGame();

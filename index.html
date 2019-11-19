@@ -14,7 +14,7 @@
 <body>
     <header class="row">
         <div class="col-12">
-            <h1 class="text-center my-header">
+            <h1 class="text-center my-header d-flex align-items-center justify-content-center">
                 Quiz Whizz
             </h1>
         </div>
@@ -42,7 +42,7 @@
                 <h2>
                     Rules:
                 </h2>
-                <p>
+                <p class="rules-text">
                     This is a simple music quiz, covering music theory. The questions get harder as they go along. You
                     will score points based on how much time you have remaining to finish the quiz. If you
                     get a question wrong 10 seconds will be subtracted from the total time remaining, which will impact
@@ -119,20 +119,20 @@
         </div>
     </div>
 
-    <div class="container my-containers" id="finishContainer">
+    <div class="container my-containers my-jumbos" id="finishContainer">
         <div class="row">
-            <div class="col-12 my-jumbos">
+            <div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="d-flex justify-content-center">
-                            Finished!
+                        <h2 class="d-flex justify-content-center" id="finished">
+                            
                         </h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="d-flex justify-content-center">
-                            Great game! You scored 5 points.
+                        <h3 class="d-flex justify-content-center" id="finalScore">
+
                         </h3>
                     </div>
                 </div>
@@ -148,10 +148,17 @@
     </div>
 
     <footer class="row">
-        <div class="col">
-            <p class="copyright">
-                Copyright 2019
-            </p>
+        <div class="col d-flex align-items-center justify-content-center">
+            Your score
+        </div>
+        <div class="col d-flex align-items-center justify-content-center" id="currentScore">
+            0
+        </div>
+        <div class="col d-flex align-items-center justify-content-center">
+            Time left
+        </div>
+        <div class="col d-flex align-items-center justify-content-center" id="timer">
+            00:00
         </div>
     </footer>
 
