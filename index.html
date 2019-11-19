@@ -49,8 +49,12 @@
                     your final score, so answering questions right is more important than answering questions quickly.
                     Good luck!
                 </p>
+                <input type="text" name="Name" placeholder="Username" id="username">
                 <button id="rulesButton">
-                    Ok.
+                    Go!
+                </button>
+                <button id="jumpToHighScores">
+                    See high scores
                 </button>
             </div>
         </div>
@@ -121,22 +125,17 @@
 
     <div class="container my-containers my-jumbos" id="finishContainer">
         <div class="row">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="d-flex justify-content-center" id="finished">
-                            
-                        </h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="d-flex justify-content-center" id="finalScore">
+            <div class="col">
+                <h2 class="d-flex justify-content-center">
+                    HIGH SCORES
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ol id="highScores">
 
-                        </h3>
-                    </div>
-                </div>
-
+                </ol>
             </div>
         </div>
     </div>

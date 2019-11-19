@@ -12,26 +12,49 @@ function initGame() {
     const timerEl = document.getElementById("timer");
     const scoreEl = document.getElementById("currentScore");
     const answersEl = document.querySelectorAll(".answers-js");
-    const finalScoreEl= document.getElementById("finalScore");
-    const finishedEl= document.getElementById("finished");
+    const highScoresEl = document.getElementById("highScores");
+    const usernameEl = document.getElementById("username");
+    const highScoresJumpEl = document.getElementById("jumpToHighScores");
 
     //The variables for when the user interacts with the page.
     let chosenAnswer = "";
     let currentQuestion = 0;
-    let score = 0;
+    let score = {
+        value: 0,
+        name: "",
+    }
+    let highScores = [];
+    let savedValue = JSON.parse(localStorage.getItem("highScores"));
+    let username;
+
+    if (savedValue) {
+        highScores = savedValue;
+    }
+
+    console.log(highScores);
 
     startButtonEl.addEventListener("click", function () {
         readRules();
     })
 
     rulesButtonEl.addEventListener("click", function () {
-        startTimer();
-        startGame();
+        username = usernameEl.value;
+        console.log(username);
+        if (username === "") {
+            alert("Pick a username")
+        } else {
+            startTimer();
+            startGame();
+        }
     })
 
+    highScoresJumpEl.addEventListener("click", function () {
+        handleHighScores();
+    })
 
     const defaultTime = questions.length * 15;
     let time = 0;
+    let myInterval;
 
     //Hides the question, rules, and finish container
     questionContainerEl.setAttribute("style", "display: none");
@@ -64,7 +87,7 @@ function initGame() {
             if (currentQuestion < questions.length) {
                 renderQuestion();
             } else {
-                finishGame();
+                handleHighScores();
             }
         }
 
@@ -84,10 +107,10 @@ function initGame() {
         //Checks to see if the answer to the question is right.
         function checkAnswer() {
             if (chosenAnswer === questions[currentQuestion].answer) {
-                score = score+time;
-                scoreEl.innerHTML = score;
+                score.value = score.value + time;
+                scoreEl.innerHTML = score.value;
             } else {
-               time = time-10;
+                time = time - 10;
             }
             currentQuestion = currentQuestion + 1;
             checkGameProgress();
@@ -97,7 +120,7 @@ function initGame() {
     //The timer function
     function startTimer() {
         time = defaultTime;
-        let myInterval = setInterval(function () {
+        myInterval = setInterval(function () {
             time = time - 1;
 
             let minutes = Math.floor(time / 60) % 60;
@@ -114,55 +137,46 @@ function initGame() {
 
             if (time <= 0) {
                 clearInterval(myInterval);
-                finishGame();
+                handleHighScores();
             }
         }, 1000)
     }
 
+    //Adds the high score
+    function handleHighScores() {
+        if (score.value !== 0) {
+            score.name = username;
+            clearInterval(myInterval);
+            time = 0;
+            highScores.push(score);
+
+        }
+        // found this here https://stackoverflow.com/questions/1069666/sorting-javascript-object-by-property-value
+        const sortedHighScores = highScores.slice(0);
+        sortedHighScores.sort(function (a, b) {
+            return b.value - a.value;
+        });
+
+
+
+        for (let i = 0; i < highScores.length; i++) {
+            const highScoreEl = document.createElement("li");
+            highScoreEl.setAttribute("class", "high-score-li d-flex justify-content-center");
+            highScoreEl.innerText = sortedHighScores[i].name + " " + sortedHighScores[i].value;
+            highScoresEl.append(highScoreEl);
+        }
+        finishGame();
+    }
+
     function finishGame() {
-        time = 1;
+        rulesContainerEl.setAttribute("style", "display: none");
         finishContainerEl.setAttribute("style", "display: block");
         questionContainerEl.setAttribute("style", "display: none");
-        finalScoreEl.innerHTML = "Great Game! You scored " + score + " points!";
-        finishedEl.innerHTML = "FINISHED!";
+        timerEl.innerHTML = "00:00";
+        localStorage.setItem('highScores', JSON.stringify(highScores));
     }
+
 
 } initGame();
 
 
-
-
-// Done
-// bootstrap that guy
-// make a start button (jumbotron maybe?? make an on click)
-// make questions ()
-// designate which answer is correct
-// make thing that will show next question
-// make answer to questions
-// designate which answer is correct
-// check for right/wrong
-// give reward for right
-// give prompt that user got it right/wrong
-// make reward change based on how much time is left
-// make a score keeper
-// give punishment for wrong 
-// make a timer (not sure yet) 15 seconds * number of questions
-// make a time over screen
-
-
-
-
-
-// To Do:
-// make a high score keeper
-// give link at the beginning to see high scores.
-
-
-
-
-
-// would be nice:
-// sounds effects
-// customizeable theme
-// multiple quizzes
-// add to portfolio 
