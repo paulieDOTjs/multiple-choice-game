@@ -74,7 +74,7 @@ function initGame() {
         questionContainerEl.setAttribute("style", "display: block");
 
         //Gives each of the buttons an event listener so the program knows which was clicked.
-        for (let i = 0; i < answersEl.length; i++) {
+        for (let i = 0; i <answersEl.length; i++) {
             const answerEl = answersEl[i];
             answerEl.addEventListener("click", function () {
                 chosenAnswer = answerEl.innerText;
@@ -84,7 +84,7 @@ function initGame() {
 
         //checks to see if there are more questions, if so it will run the function to display the next function, if not will bring to end screen.
         function checkGameProgress() {
-            if (currentQuestion < questions.length) {
+            if (currentQuestion <questions.length) {
                 renderQuestion();
             } else {
                 handleHighScores();
@@ -99,7 +99,7 @@ function initGame() {
             questionPromptEl.innerHTML = questions[currentQuestion].title;
 
             // Puts the correct answer option in the answerEl variable based on where it is in the array.
-            for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
+            for (let i = 0; i <questions[currentQuestion].choices.length; i++) {
                 answersEl[i].innerHTML = questions[currentQuestion].choices[i];
             }
         }
@@ -126,10 +126,10 @@ function initGame() {
             let minutes = Math.floor(time / 60) % 60;
             let seconds = time % 60;
 
-            if (minutes < 10) {
+            if (minutes <10) {
                 minutes = "0" + minutes;
             }
-            if (seconds < 10) {
+            if (seconds <10) {
                 seconds = "0" + seconds;
             }
 
@@ -159,7 +159,7 @@ function initGame() {
 
 
 
-        for (let i = 0; i < highScores.length; i++) {
+        for (let i = 0; i <highScores.length; i++) {
             const highScoreEl = document.createElement("li");
             highScoreEl.setAttribute("class", "high-score-li d-flex justify-content-center");
             highScoreEl.innerText = sortedHighScores[i].name + " " + sortedHighScores[i].value;
