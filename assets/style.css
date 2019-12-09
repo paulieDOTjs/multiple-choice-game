@@ -12,7 +12,7 @@
     color: rebeccapurple;
 }
 
-.my-containers{
+.my-containers {
     min-height: 60vh;
 }
 
@@ -59,6 +59,24 @@ li {
     min-height: 64px;
 }
 
+.rules-text {
+    font-size: 28px;
+}
+
+.high-score-li {
+    font-size: 24px;
+}
+
+.high-score-input {
+    height: 24px;
+    color: rebeccapurple;
+}
+
+ol {
+    padding: 0;
+}
+
+
 footer {
     min-height: 15vh;
     text-align: center;
@@ -69,19 +87,13 @@ footer {
     font-size: 56px;
 }
 
-.rules-text{
-    font-size: 28px;
-}
-
-.high-score-li{
-    font-size: 24px;
-}
-
-.high-score-input{
-    height:24px;
-    color: rebeccapurple;
-}
-
-ol{
-    padding: 0;
+@media screen and (max-width: 768px) {
+    footer {
+        min-height: 4vh;
+        text-align: center;
+        position: sticky;
+        bottom: 0;
+        color: whitesmoke;
+        font-size: 16px;
+    }
 }

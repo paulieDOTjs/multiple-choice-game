@@ -57,6 +57,7 @@ function initGame() {
     let myInterval;
 
     //Hides the question, rules, and finish container
+    startContainerEl.setAttribute("style", "display: block");
     questionContainerEl.setAttribute("style", "display: none");
     rulesContainerEl.setAttribute("style", "display: none");
     finishContainerEl.setAttribute("style", "display: none");
